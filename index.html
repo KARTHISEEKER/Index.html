@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Rajalakshmi</title>
+  <title>Happy Birthday Rahul Anna</title>
   <style>
     body {
       margin: 0;
@@ -15,10 +15,24 @@
       align-items: center;
       height: 100vh;
       font-family: 'Arial', sans-serif;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #timerContainer {
+      color:color(from color srgb r g b);
+      margin-bottom: 2vh;
+      font-size: 4.5vw; /* Increased for better scaling */
+      text-shadow: 7px 2px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    #timerMessage {
+      font-size: 3vw; /* Responsive font size */
+      color: #fff;
+      margin-bottom: 2vh;
     }
 
     #birthdayContainer {
-      text-align: center;
       color: #fff;
       animation: fadeIn 3s ease-in-out;
     }
@@ -30,21 +44,14 @@
     }
 
     h1 {
-      font-size: 4em;
+      font-size: 8vw;
       color: #ffcc00;
       animation: pulse 2s infinite;
     }
 
-    h2 {
-      font-size: 2em;
-      padding-top: 10px;
-      color: #ff6699;
-      animation: slideIn 3s ease-out;
-    }
-  
-    h3 {
-      font-size: 2em;
-      padding-top: 10px;
+    h2, h3 {
+      font-size: 5vw;
+      padding-top: 2vh;
       color: #ff6699;
       animation: slideIn 3s ease-out;
     }
@@ -54,7 +61,7 @@
     }
 
     #wishMessage {
-      font-size: 2em;
+      font-size: 6vw;
       color: #ff6699;
       position: absolute;
       top: 50%;
@@ -113,7 +120,7 @@
     /* Falling Emoji Hearts */
     .heart {
       position: fixed;
-      font-size: 20px;
+      font-size: 4vw;
       top: -20px;
       animation: fall linear infinite;
       opacity: 0.8;
@@ -128,26 +135,12 @@
     /* Heart-shaped flower growth */
     .flower {
       position: absolute;
-      width: 15px;
-      height: 15px;
+      width: 5vw;
+      height: 5vw;
       background-color: red;
       clip-path: polygon(50% 0%, 61% 18%, 80% 18%, 100% 38%, 100% 58%, 50% 100%, 0% 58%, 0% 38%, 20% 18%, 39% 18%);
       animation: growFlower 5s ease forwards;
       opacity: 0;
-    }
-
-    @keyframes growFlower {
-      0% {
-        opacity: 0;
-        transform: scale(0) translateY(0);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-      100% {
-        transform: scale(1.5) translateY(-200px);
-      }
     }
 
     #flowerContainer {
@@ -170,25 +163,12 @@
     video {
       max-width: 100%;
       max-height: 100%;
-      outline: none; /* Remove any default outline */
-    }
-
-    /* Hide default video controls */
-    video::-webkit-media-controls {
-      display: none !important;
-    }
-
-    video::-webkit-media-controls-enclosure {
-      display: none !important;
-    }
-
-    video::-webkit-media-controls-panel {
-      display: none !important;
+      outline: none;
     }
 
     /* Goodbye message */
     #goodbyeMessage {
-      font-size: 3em;
+      font-size: 8vw;
       color: #ff6699;
       position: absolute;
       top: 50%;
@@ -198,17 +178,58 @@
       display: none;
     }
 
+    /* Media Queries for Smaller Screens */
+    @media (max-width: 768px) {
+      #timerContainer {
+        font-size: 5vw;
+      }
+
+      h1 {
+        font-size: 10vw;
+      }
+
+      h2, h3 {
+        font-size: 6vw;
+      }
+
+      #wishMessage {
+        font-size: 7vw;
+      }
+
+      #goodbyeMessage {
+        font-size: 10vw;
+      }
+    }
+
+    /* Larger screens */
+    @media (min-width: 1200px) {
+      h1 {
+        font-size: 6vw;
+      }
+      h2 {
+        font-size: 4vw;
+      }
+      h3 {
+        font-size: 4vw;
+      }
+    }
   </style>
 </head>
 <body>
 
+<!-- Timer Message Display -->
+<div id="timerMessage">👇This timer reflects the time from your birth to the present day👇</div>
+
+<!-- Timer Display -->
+<div id="timerContainer"></div>
+
 <div id="birthdayContainer">
-  <h1 id="birthdayTitle">happy return of the day princess</h1>  
-  <h2 id="birthdayMessage">hey</h2>
-  <h3 id="birthdayPrompt">if you read this please touch the screen</h3>
+  <h1 id="birthdayTitle">Many More Happy Returns of the Day Anna </h1>  
+  <h2 id="birthdayMessage">bro</h2>
+  <h3 id="birthdayPrompt">If you read this, please touch the screen</h3>
 </div>
 
-<div id="wishMessage">I wish you live long, be happy forever and live your life as you like it.if you read my wishes please touch screen</div>
+<div id="wishMessage">I wish you live long, be happy forever, and live your life as you like it. If you read my wishes, please touch the screen twice.</div>
 
 <div id="flowerContainer"></div>
 
@@ -221,10 +242,10 @@
 </div>
 
 <!-- Background Image (Hidden Initially) -->
-<img id="backgroundImage" src="background-image.png" alt="Background Image">
+<img id="backgroundImage" src="background-image.jpg" alt="Background Image">
 
 <!-- Goodbye Message (Hidden Initially) -->
-<div id="goodbyeMessage">Happy birthday princess raji and goodbye 🫂</div>
+<div id="goodbyeMessage">Happy birthday Anna and goodbye 🫂</div>
 
 <!-- Audio for Background Music -->
 <audio id="birthdaySong">
@@ -234,8 +255,8 @@
 
 <!-- Confetti Effect (Hearts) -->
 <script>
-  const emojis = ['🩷', '🩵', '💙', '🤍', '🩶', '💜', '❤️'];
-  const numberOfHearts = 100; // Number of hearts to create
+  const emojis = ['💗','🩷','🤍','🩶','🖤','🤎','💜','💙','🩵','💚','💛','🧡','❤️','♥️'];
+  const numberOfHearts = 100;
   let touchCount = 0;
 
   function createHeartRain() {
@@ -247,55 +268,61 @@
       heart.style.animationDuration = Math.random() * 3 + 2 + 's';
       document.body.appendChild(heart);
 
-      // Remove heart after animation completes to prevent clutter
       heart.addEventListener('animationend', () => {
         heart.remove();
       });
     }
   }
 
-  function createFlowerAnimation() {
-    const container = document.getElementById('flowerContainer');
-    for (let i = 0; i < 30; i++) {
-      const flower = document.createElement('div');
-      flower.classList.add('flower');
-      flower.style.left = (i * 10) + 'px';
-      container.appendChild(flower);
-    }
+  function updateTimer() {
+    const birthDate = new Date('2002-11-27T10:15:00');
+    const now = new Date();
+
+    const diff = now - birthDate;
+
+    // Total Time Calculation
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    const totalMonths = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+    const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const totalHours = Math.floor(diff / (1000 * 60 * 60));
+    const totalMinutes = Math.floor(diff / (1000 * 60));
+    const totalSeconds = Math.floor(diff / 1000);
+
+    document.getElementById('timerContainer').textContent = 
+      `${years} Years | ${totalMonths} Months | ${totalHours} Hours | ${totalMinutes} Minutes | ${totalSeconds} Seconds`;
   }
+
+  setInterval(updateTimer, 1000);
 
   document.body.addEventListener('click', function () {
     touchCount++;
 
     if (touchCount === 1) {
-      // First touch: Show wish message, hide title and prompt
       document.getElementById('birthdayTitle').classList.add('hidden');
       document.getElementById('birthdayMessage').classList.add('hidden');
       document.getElementById('birthdayPrompt').classList.add('hidden');
+      document.getElementById('timerContainer').classList.add('hidden');
+      document.getElementById('timerMessage').classList.add('hidden');
       document.getElementById('wishMessage').style.display = 'block';
-
       createFlowerAnimation();
-
-      setTimeout(function() {
-        document.getElementById('birthdayContainer').style.display = 'none';
-        document.getElementById('wishMessage').style.display = 'none';
-        document.getElementById('flowerContainer').style.display = 'none';
-        document.getElementById('videoContainer').style.display = 'flex';
-      }, 10000); // Show video after 10 seconds
     } else if (touchCount === 2) {
-      // Second touch: Show background image and play song
+      document.getElementById('wishMessage').style.display = 'none';
+      document.getElementById('flowerContainer').style.display = 'none';
+      document.getElementById('videoContainer').style.display = 'flex';
+    } else if (touchCount === 3) {
       document.getElementById('videoContainer').style.display = 'none';
       document.getElementById('backgroundImage').style.display = 'block';
       const audio = document.getElementById('birthdaySong');
       audio.play();
-    } else if (touchCount === 3) {
-      // Third touch: Show goodbye message for 10 seconds then simulate exit
+    } else if (touchCount === 4) {
       document.getElementById('backgroundImage').style.display = 'none';
       document.getElementById('goodbyeMessage').style.display = 'block';
-}
+      document.body.addEventListener('click', handleInteraction);
+  document.body.addEventListener('touchstart', handleInteraction);
+    }
   });
+  
 
-  // Start heart rain effect
   createHeartRain();
 </script>
 
